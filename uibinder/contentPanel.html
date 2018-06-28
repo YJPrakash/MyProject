@@ -1,0 +1,56 @@
+<uibinder id="contentPanel">
+    
+        <div id="header" ui-field="header" style="background-color: #f9f9f9;box-shadow: 4px 0px 8px 0px;">
+            <div ui-field="headerText" style="padding: 10px;font-size: 30px;width: 250px;height: 100px; text-align:center;margin:0 auto;color:#6b5d5d;">Employee Record Management System</div>
+        </div>
+        <div id="content" ui-field="content" style="display: table;width: 100%">
+            <div id="lftMenu" ui-field="lftMenu" style="display: table-cell;width: 25%">
+                <style>
+                    ul>li {
+                        text-indent: 20px;
+                        font-size: 20px;
+                        line-height: 1;
+                        padding-bottom: 10px;
+                        /* display: list-item;
+                        list-style-type: circle;
+                        list-style-position: inside; */
+                    }
+                </style>
+                <div ui-field="menuList">
+                    <ul>
+                        <li ui-field="addEmp">Add Employee Details..</li>
+                        <li ui-field="addDept">Add Dept. Details..</li>
+                        <li ui-field="addDet">Project Details..</li>
+                        <li ui-field="search">Search..</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="rgtContentPane" ui-field="rgtContentPane" style="display: table-cell;width: 75%">
+            </div>
+        </div>
+        <div id="footer" ui-field="footer">
+
+        </div>
+        <script type="text/plain">
+            (function(panel){            
+                var header = panel.header;
+                headerText = panel.headerText,
+                content = panel.content,
+                lftMenu = panel.lftMenu,
+                menuList = panel.menuList,
+                addEmp = panel.addEmp,
+                addDept = panel.addDept,
+                addDet = panel.addDet,
+                rgtContetPane = panel.rgtContetPane,
+                search = panel.search,
+                footer = panel.footer;
+                addEmp.addEventListener("click",function(e){
+                    console.log(e.target);
+                    console.log(headerText.textContent);                 
+                })
+
+            })(JS.contentPanel);
+            alert("asdfa")
+        </script>
+    </uibinder>
+    
