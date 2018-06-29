@@ -9,8 +9,36 @@
     global.rootPanel = doc.body;
 
     var docFrame = doc.createElement('iframe');
-    docFrame.src = "";
-    
+    doc.body.appendChild(docFrame);
+    docFrame.style["visibility"] = "hidden";
+    docFrame.style["height"] = "0";
+    docFrame.style["width"] = "0";
+    docFrame.style["display"] = "none";
+    docFrame.onload = function(){
+        // console.log(docFrame.contentWindow.document)
+        var domObj = docFrame.contentWindow.document;
+        var uiObj = domObj.querySelector("uibinder").cloneNode(true); 
+        JS[uiObj.getAttribute("id")] = JS.createUi(uiObj);
+        var panel = JS[uiObj.getAttribute("id")]
+        // console.log(panel)
+        var contentPanelScript = JS.contentPanel.querySelector('script');
+        panel.removeChild(contentPanelScript);
+        contentPanelScript.type = "text/javascript";
+        doc.body.appendChild(panel);
+        panel.style.display = "block";
+        var script = doc.createElement('script');
+        script.type = "text/javascript";
+        script.innerText = contentPanelScript.textContent;
+        doc.head.appendChild(script);
+        doc.head.removeChild(script)
+
+        document.body.appendChild(panel);
+        // panel.footer.style.margin = "0 auto";
+        // panel.footer.style.textAlign = "center";
+        // panel.footer.innerText = "&copy; 2018 All rights reserved. JS Tool Kit."
+    }
+    docFrame.src = "uibinder/contentPanel.html";
+
     function setProperty(_proto, tagName) {
         var obj = (_prpoperties[tagName] === undefined) ? _prpoperties["TextBox"] : _prpoperties[tagName];
         Object.keys(obj).map(function (key) {
