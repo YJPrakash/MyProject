@@ -57,15 +57,24 @@
 
     </div>
     <script type="text/plain">
-        (function(panel){ var header = panel.header; headerText = panel.headerText, content = panel.content, lftMenu = panel.lftMenu,
-        menuList = panel.menuList, addEmp = panel.addEmp, addDept = panel.addDept, addDet = panel.addDet, rgtContetPane =
-        panel.rgtContetPane, search = panel.search, footer = panel.footer; addEmp.addEventListener("click",function(e){ console.log(e.target);
-        console.log(headerText.textContent); }) })(JS.contentPanel);
+        (function (panel) {
+            var header = panel.header;
+            headerText = panel.headerText, content = panel.content, lftMenu = panel.lftMenu,
+                menuList = panel.menuList, addEmp = panel.addEmp, addDept = panel.addDept, addDet = panel.addDet,
+                rgtContetPane =
+                panel.rgtContetPane, search = panel.search, footer = panel.footer;
+            addEmp.addEventListener("click", function (e) {
+                console.log("click triggerd");
+                console.log(addEmp.textContent);
+            })
+        })(JS.contentPanel);
     </script>
 </uibinder>
 <uibinder id="helloworld">
     <script type="text/plain">
-        (function(helloworld) { console.log(helloworld.text); })(helloworld);
+        (function (helloworld) {
+            console.log(helloworld.text);
+        })(helloworld);
     </script>
     <div>
         <input type="text" ui-field="textfield" name="name" id="getName">
@@ -104,7 +113,6 @@
         script.innerText = contentPanelScript.textContent;
         doc.head.appendChild(script);
         doc.head.removeChild(script)
-
     })(JS)
 </script>
 

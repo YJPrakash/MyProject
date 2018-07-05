@@ -1,10 +1,13 @@
 <uibinder id="helloworld">
-    <script-text >
-    (function(helloworld) {
-        console.log(helloworld.text);
-        
-    })(helloworld);
-    </script-text>
+    <script type="text/plain">
+        (function (helloworld) {
+            console.log(helloworld.textfield);
+            helloworld.button.addEventListener("click",function(e){
+                if(helloworld.textfield.value)
+                    alert(helloworld.textfield.value);
+            })
+        })(JS.helloworld);
+    </script>
     <div>
         <input type="text" ui-field="textfield" name="name" id="getName">
         <input type="button" ui-field="button" value="Click Here..">

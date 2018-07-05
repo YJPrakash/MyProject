@@ -1,14 +1,16 @@
-<TextField ui-field="textfield" class="PP-TextBox-Div">
-  <input ui-field="input" class="PP-TextBox-Input"/>
-</TextField>
-<TextBox ui-field="textbox">
-  <label ui-field="label1"></label>
-  <div ui-base="TextField"></div>
-  <label ui-field="label2"></label>
-</TextBox>
-<ComboBox>
-  <div ui-base="TextField">
-    <span></span>
-  </div>
-  <div></div>
-</ComboBox>
+<uibinder id="elements">
+	<TextField ui-field="textfield" class="PP-TextBox-Div">
+		<input ui-field="input" class="PP-TextBox-Input" />
+	</TextField>
+	<TextBox ui-field="textbox">
+		<label ui-field="label1"></label>
+		<div ui-base="TextField"></div>
+		<label ui-field="label2"></label>
+	</TextBox>
+	<ComboBox>
+		<div ui-base="TextField">
+			<span></span>
+		</div>
+		<div></div>
+	</ComboBox>
+</uibinder>
