@@ -17,32 +17,19 @@
 	docFrame.onload = function () {
 		// console.log(docFrame.contentWindow.document)
 		var domObj = docFrame.contentWindow.document;
-		var uiObj = domObj.querySelector("uibinder").cloneNode(true);
-		JS[uiObj.getAttribute("id")] = JS.createUi(uiObj);
-		var panel = JS[uiObj.getAttribute("id")]
-		console.log(panel)
-		var contentPanelScript = panel.querySelector('script');
-		panel.removeChild(contentPanelScript);
-		contentPanelScript.type = "text/javascript";
-		doc.body.appendChild(panel);
-		panel.style.display = "block";
-		var script = doc.createElement('script');
-		script.type = "text/javascript";
-		script.innerText = contentPanelScript.textContent;
-		doc.head.appendChild(script);
-		doc.head.removeChild(script)
+		var uiObj = domObj.querySelectorAll("uibinder");
+		uiObj.forEach(element => {
+			var panel_id = element.getAttribute("id");
+			JS.layoutPanel[panel_id].uiObj = element;
+			JS.UiBinder(panel_id);
+		});
 
-		doc.body.appendChild(panel);
-		// panel.footer.style.margin = "0 auto";
-		// panel.footer.style.textAlign = "center";
-		// panel.footer.innerText = "&copy; 2018 All rights reserved. JS Tool Kit."
-		// docFrame.onload = {}
 	}
-	docFrame.src = "uibinder/contentPanel.html";
-	
-	setTimeout(function(){
-		docFrame.src = "uibinder/helloWorld.html";
-	},100);
+
+	docFrame.src = "uibinder/uibinder.html";
+	// docFrame.src = "uibinder/contentPanel.html";
+	// docFrame.src = "uibinder/helloworld.html";
+	// docFrame.src = "uibinder/Elements.html";
 
 	function setProperty(_proto, tagName) {
 		var obj = (_prpoperties[tagName] === undefined) ? _prpoperties["TextBox"] : _prpoperties[tagName];
@@ -52,8 +39,9 @@
 	}
 
 	global.JS = {
-		createUiBase: function (obj) {
-			var uiBase = obj.querySelectorAll("*[ui-base]");
+		createUiBase: function (obj, tagName) {
+			var query_str = "*[ui-base]"
+			var uiBase = obj.querySelectorAll(query_str);
 			var hasUiBase = uiBase.length;
 			for (var j = 0; j < hasUiBase; j++) {
 				var el = JS.createUi(uiBase[j].getAttribute("ui-base"));
@@ -62,19 +50,21 @@
 			return obj;
 		},
 		createUiField: function (obj, isCreateUiBase, tagName) {
-			var uiField = obj.querySelectorAll("*[ui-field]");
+			// if(!isCreateUiBase){
+			// 	obj = obj.cloneNode(true);
+			// }
+			var query_str = "*[ui-field]";
+			var uiField = obj.querySelectorAll(query_str);
 			var hasUiField = uiField.length;
 			for (var j = 0; j < hasUiField; j++) {
 				obj[uiField[j].getAttribute("ui-field")] = uiField[j];
 			}
-			return (isCreateUiBase !== false) ? this.createUiBase(obj) : obj;
+			return (!isCreateUiBase) ? obj : this.createUiBase(obj, tagName);
 		},
-		createUi: function (obj, tagName) {
-			// var elements1 = JS.layoutPanel.elements
-			// var domStr = elements1["domStr"];
-			// var domObj = elements1["domObj"];
-			// var obj = domObj.body.querySelector("uibinder").cloneNode(true);
-			obj = this.createUiField(obj, true, tagName);
+		createUi: function (tagName) {
+			var domObj = JS.layoutPanel.elements.domObj;
+			var obj = domObj.querySelector(tagName).cloneNode(true);
+			obj = JS[tagName] = this.createUiField(obj, true, tagName);
 			var _proto = obj;
 			// setProperty(_proto, tagName);
 			return obj;
@@ -88,6 +78,10 @@
 				url: "./uibinder/contentPanel.html",
 				type: "uibinder"
 			},
+			"helloworld": {
+				url: "./uibinder/helloworld.html",
+				type: "uibinder"
+			}
 		},
 		createUiString: function (panel, domObj) {
 			var elements = JS.layoutPanel[panel];
@@ -103,36 +97,42 @@
 			}
 		},
 		UiBinder: function (panel) {
-			var url = JS.layoutPanel[panel].url;
-			var type = JS.layoutPanel[panel].type;
-			var ui_obj = new JSDOMParser(),
-				ui_obj1 = {};
-			if (JS.layoutPanel[panel] !== undefined) {
-				JS.layoutPanel[panel]["domStr"] = ui_obj.getDOMString(url, "text/html", panel);
-				var domStr = JS.layoutPanel[panel].domStr;
-				JS.layoutPanel[panel]["domObj"] = ui_obj.getDOMObject(domStr);
-				var domObj = JS.layoutPanel[panel].domObj;
-			} else {}
-
+			var type = JS.layoutPanel[panel].type
+			var uiObj = JS.layoutPanel[panel].uiObj;
+			var evalString = "JS.createUi"
 			if (type == "uibinder") {
-				ui_obj1 = domObj.body.find("uibinder")[0].cloneNode(true);
+				evalString += "Field(uiObj,false,null);";
+				uiObj = uiObj.cloneNode(true);
+				// doc.body.appendChild(uiObj);
 			} else if (type == "uidata") {
-				ui_obj1 = domObj.body.cloneNode(true);
+				// evalString += "(uiObj);";
+				evalString = ""
+				uiObj = uiObj.cloneNode(true);
 			} else if (type == "ui") {
 
 			}
-			if (ui_obj1.find("script").length > 0) {
-				var script = ui_obj1.find("script");
+			uiObj.style.display = "block";
+			if (uiObj.querySelectorAll("script").length > 0) {
+				var script = uiObj.querySelectorAll("script");
+				// var scriptFragment = doc.createDocumentFragment();
 				for (var j = 0; j < script.length; j++) {
-					var tmp_str = script[j].textContent;
+					var script1 = script[j];
+					script1.type = "text/javascript";
+					script1 = script1.cloneNode(true);
+					var tmp_str = script1.textContent;
 					var tmp_str2 = "";
-					tmp_str2 += "JS.createUiField(ui_obj1,false);";
-					tmp_str2 += "JS." + panel + " = ui_obj1;";
+					tmp_str2 += "console.log(uiObj);\nalert('asdfads');";
+					tmp_str2 += evalString;
+					tmp_str2 += "JS['" + panel + "'] = uiObj;";
 					tmp_str = tmp_str2 + tmp_str;
-					script[j].textContent = tmp_str;
+					script1.textContent = tmp_str;
+					// scriptFragment.append(script[j]);
+					// eval(tmp_str);
+					// doc.body.appendChild(script1);
+					// doc.head.appendChild(script1);
 				}
 			}
-			return ui_obj1;
+			return uiObj;
 		}
 	}
 

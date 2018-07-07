@@ -61,20 +61,37 @@
             var header = panel.header;
             headerText = panel.headerText, content = panel.content, lftMenu = panel.lftMenu,
                 menuList = panel.menuList, addEmp = panel.addEmp, addDept = panel.addDept, addDet = panel.addDet,
-                rgtContetPane =
-                panel.rgtContetPane, search = panel.search, footer = panel.footer;
+                rgtContetPane = panel.rgtContetPane,
+                search = panel.search, footer = panel.footer;
             addEmp.addEventListener("click", function (e) {
                 console.log("click triggerd");
                 console.log(addEmp.textContent);
-            })
+            });
+            addDept.addEventListener("click", function (e) {
+                console.log("click triggerd");
+                console.log(addDept.textContent);
+            });
+            addDet.addEventListener("click", function (e) {
+                console.log("click triggerd");
+                console.log(addDet.textContent);
+            });
+            search.addEventListener("click",
+                function (e) {
+                    console.log("click triggerd");
+                    console.log(search.textContent);
+                });
         })(JS.contentPanel);
     </script>
 </uibinder>
 <uibinder id="helloworld">
     <script type="text/plain">
         (function (helloworld) {
-            console.log(helloworld.text);
-        })(helloworld);
+            console.log(helloworld.textfield);
+            helloworld.button.addEventListener("click", function (e) {
+                if (helloworld.textfield.value)
+                    alert(helloworld.textfield.value);
+            })
+        })(JS.helloworld);
     </script>
     <div>
         <input type="text" ui-field="textfield" name="name" id="getName">
@@ -99,20 +116,15 @@
     </ComboBox>
 </uidata>
 <script src="js/main.js"></script>
-<script type="text/plain">
+<script type="text/javascript">
     (function (jScript) {
-        var contentPanel = doc.querySelector("uibinder[id=contentPanel]").cloneNode(true);
-        jScript.contentPanel = jScript.createUi(contentPanel);
-        var contentPanelScript = JS.contentPanel.querySelector('script');
-        jScript.contentPanel.removeChild(contentPanelScript);
-        contentPanelScript.type = "text/javascript";
-        doc.body.appendChild(jScript.contentPanel);
-        jScript.contentPanel.style.display = "block";
-        var script = doc.createElement('script');
-        script.type = "text/javascript";
-        script.innerText = contentPanelScript.textContent;
-        doc.head.appendChild(script);
-        doc.head.removeChild(script)
+        'use strict';
+        var uiObj = doc.body.querySelectorAll("uibinder");
+        uiObj.forEach(element => {
+            var panel_id = element.getAttribute("id");
+            jScript.layoutPanel[panel_id].uiObj = element;
+            jScript.UiBinder(panel_id)
+        });
     })(JS)
 </script>
 
