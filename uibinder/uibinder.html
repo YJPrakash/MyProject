@@ -1,4 +1,4 @@
-<uibinder id="helloworld">
+<uibinder type="uibinder" id="helloworld">
     <script type="text/plain">
         (function (helloworld) { console.log(helloworld.textfield); helloworld.button.addEventListener("click",function(e){ if(helloworld.textfield.value)
         alert(helloworld.textfield.value); }) })(JS.helloworld);
@@ -8,7 +8,7 @@
         <input type="button" ui-field="button" value="Click Here..">
     </div>
 </uibinder>
-<uibinder id="elements">
+<uibinder type="uidata" id="elements">
     <TextField ui-field="textfield" class="PP-TextBox-Div">
         <input ui-field="input" class="PP-TextBox-Input" />
     </TextField>
@@ -24,7 +24,7 @@
         <div></div>
     </ComboBox>
 </uibinder>
-<uibinder id="contentPanel">
+<uibinder type="uibinder" id="contentPanel">
 
     <div id="header" ui-field="header" style="background-color: #f9f9f9;box-shadow: 4px 0px 8px 0px;">
         <div ui-field="headerText" style="padding: 10px;font-size: 30px;width: 250px;height: 100px; text-align:center;margin:0 auto;color:#6b5d5d;">Employee Record Management System</div>
