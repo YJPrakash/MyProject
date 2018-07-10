@@ -68,8 +68,13 @@
     </uibinder>
     <uibinder type="uibinder" id="helloworld">
         <script type="text/plain">
-            (function (helloworld) { console.log(helloworld.textfield); helloworld.button.addEventListener("click", function (e) { if
-            (helloworld.textfield.value) alert(helloworld.textfield.value); }) })(JS.helloworld);
+            (function (helloworld) { 
+                // console.log(helloworld.textfield); 
+                helloworld.button.addEventListener("click", function (e) { 
+                    if(helloworld.textfield.value) 
+                    alert(helloworld.textfield.value); 
+                }) 
+            })(JS.helloworld);
         </script>
         <div>
             <input type="text" ui-field="textfield" name="name" id="getName">
@@ -103,7 +108,9 @@
         uiObj.forEach(element => {
             var panel_id = element.getAttribute("id");
             jScript.layoutPanel[panel_id].uiObj = element;
+            console.time("load");
             jScript.UiBinder(panel_id)
+            console.timeEnd("load");
         });
     })(JS)
 </script>

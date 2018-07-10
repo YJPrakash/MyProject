@@ -21,7 +21,9 @@
 		uiObj.forEach(element => {
 			var panel_id = element.getAttribute("id");
 			JS.layoutPanel[panel_id].uiObj = element;
+			console.time("load");
 			JS.UiBinder(panel_id);
+			console.timeEnd("load");
 		});
 
 	}
@@ -62,8 +64,8 @@
 			return (!isCreateUiBase) ? obj : this.createUiBase(obj, tagName);
 		},
 		createUi: function (tagName) {
-			var domObj = JS.layoutPanel.elements.domObj;
-			var obj = domObj.querySelector(tagName).cloneNode(true);
+			var uiObj = JS.layoutPanel.elements.uiObj;
+			var obj = uiObj.querySelector(tagName).cloneNode(true);
 			obj = JS[tagName] = this.createUiField(obj, true, tagName);
 			var _proto = obj;
 			// setProperty(_proto, tagName);
@@ -98,41 +100,41 @@
 		},
 		UiBinder: function (panel) {
 			var type = JS.layoutPanel[panel].type
-			var uiObj = JS.layoutPanel[panel].uiObj;
-			var evalString = "JS.createUi"
+			var uiObj = JS.layoutPanel[panel].uiObj = JS.layoutPanel[panel].uiObj.cloneNode(true);
+			var evalString = "JS.layoutPanel['" + panel + "'].uiObj = JS.createUi"
 			if (type == "uibinder") {
-				evalString += "Field(uiObj,false,null);";
-				uiObj = uiObj.cloneNode(true);
-				// doc.body.appendChild(uiObj);
+				evalString += "Field(JS.layoutPanel['"+panel+"'].uiObj,false,null);";
+				// uiObj = uiObj.cloneNode(true);
+				doc.body.appendChild(uiObj);
 			} else if (type == "uidata") {
-				// evalString += "(uiObj);";
-				evalString = ""
-				uiObj = uiObj.cloneNode(true);
+				evalString += "(JS.layoutPanel['" + panel + "'].uiObj);";
+				// evalString = ""
+				// uiObj = uiObj.cloneNode(true);
 			} else if (type == "ui") {
 
 			}
-			uiObj.style.display = "block";
+			// uiObj.style.display = "block";
 			if (uiObj.querySelectorAll("script").length > 0) {
 				var script = uiObj.querySelectorAll("script");
-				// var scriptFragment = doc.createDocumentFragment();
+				var scriptFragment = doc.createDocumentFragment();
 				for (var j = 0; j < script.length; j++) {
-					var script1 = script[j];
+					var script1 = doc.createElement('script');
 					script1.type = "text/javascript";
-					script1 = script1.cloneNode(true);
-					var tmp_str = script1.textContent;
+					// script1 = script1.cloneNode(true);
+					var tmp_str = script[j].textContent;
 					var tmp_str2 = "";
-					tmp_str2 += "console.log(uiObj);\nalert('asdfads');";
 					tmp_str2 += evalString;
-					tmp_str2 += "JS['" + panel + "'] = uiObj;";
+					// tmp_str2 += "console.log(JS.layoutPanel['" + panel + "'].uiObj);\nalert('asdfads');";
+					tmp_str2 += "JS['" + panel + "'] = JS.layoutPanel['" + panel + "'].uiObj;";
 					tmp_str = tmp_str2 + tmp_str;
 					script1.textContent = tmp_str;
-					// scriptFragment.append(script[j]);
+					scriptFragment.append(script1);
 					// eval(tmp_str);
 					// doc.body.appendChild(script1);
-					// doc.head.appendChild(script1);
 				}
+				doc.head.appendChild(scriptFragment);
 			}
-			return uiObj;
+			return JS.layoutPanel[panel].uiObj;
 		}
 	}
 
