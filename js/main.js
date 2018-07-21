@@ -28,10 +28,10 @@
 
 	}
 
-	docFrame.src = "uibinder/uibinder.html";
-	// docFrame.src = "uibinder/contentPanel.html";
-	// docFrame.src = "uibinder/helloworld.html";
-	// docFrame.src = "uibinder/Elements.html";
+	// docFrame.src = "/myWork/uibinder/uibinder.html";
+	// docFrame.src = "/myWork/uibinder/contentPanel.html";
+	// docFrame.src = "/myWork/uibinder/helloworld.html";
+	docFrame.src = "/myWork/uibinder/Elements.html";
 
 	function setProperty(_proto, tagName) {
 		var obj = (_prpoperties[tagName] === undefined) ? _prpoperties["TextBox"] : _prpoperties[tagName];
@@ -141,6 +141,4 @@
 	global.onload = function () {
 
 	}
-
-
 }));

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Layout Work</title>
+    <link rel="stylesheet" href="../css/materialize/materialize.min.css">
+    <link rel="stylesheet" href="../css/materialize/materialIcons.css">
+    <!-- <link rel="stylesheet" href="../css/materialize/material.teal-red.min.css"> -->
+    <style>
+        head,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        ui-section {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<ui-section>
+    <uibinder type="uibinder" id="contentPanel">
+
+        <div id="header" ui-field="header" style="background-color: #f9f9f9;box-shadow: 4px 0px 8px 0px;">
+            <div ui-field="headerText" style="padding: 10px;font-size: 30px;width: 315px;height: 100px; text-align:center;margin:0 auto;color:#6b5d5d;">Employee Record Management System</div>
+        </div>
+        <div id="content" ui-field="content" style="display: table;width: 100%">
+            <div id="lftMenu" ui-field="lftMenu" style="display: table-cell;width: 25%">
+                <style>
+                    ul>li {
+                        text-indent: 20px;
+                        font-size: 20px;
+                        line-height: 1;
+                        padding-bottom: 10px;
+                        /* display: list-item;
+                        list-style-type: circle;
+                        list-style-position: inside; */
+                    }
+                </style>
+                <div ui-field="menuList">
+                    <ul>
+                        <li ui-field="addEmp"><i class="picker__list"></i>Add Employee Details..</li>
+                        <li ui-field="addDept"><i class="picker__list"></i>Add Dept. Details..</li>
+                        <li ui-field="addDet"><i class="picker__list"></i>Project Details..</li>
+                        <li ui-field="search"><i class="picker__list"></i>Search..</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="rgtContetPane" ui-field="rgtContentPane" style="display: table-cell;width: 75%">
+            </div>
+        </div>
+        <div id="footer" ui-field="footer">
+
+        </div>
+        <script type="text/plain">
+            (function (panel) { var header = panel.header; headerText = panel.headerText, content = panel.content, lftMenu = panel.lftMenu,
+            menuList = panel.menuList, addEmp = panel.addEmp, addDept = panel.addDept, addDet = panel.addDet, rgtContetPane
+            = panel.rgtContetPane, search = panel.search, footer = panel.footer; addEmp.addEventListener("click", function
+            (e) { console.log("click triggerd"); console.log(addEmp.textContent); }); addDept.addEventListener("click", function
+            (e) { console.log("click triggerd"); console.log(addDept.textContent); }); addDet.addEventListener("click", function
+            (e) { console.log("click triggerd"); console.log(addDet.textContent); }); search.addEventListener("click", function
+            (e) { console.log("click triggerd"); console.log(search.textContent); }); })(JS.contentPanel);
+        </script>
+    </uibinder>
+    <uibinder type="uibinder" id="helloworld">
+        <script type="text/plain">
+            (function (helloworld) { 
+                // console.log(helloworld.textfield); 
+                helloworld.button.addEventListener("click", function (e) { 
+                    if(helloworld.textfield.value) 
+                    alert(helloworld.textfield.value); 
+                }) 
+            })(JS.helloworld);
+        </script>
+        <div id="modal1" class="modal" style="z-index: 1003; display: none; opacity: 0; transform: scaleX(0.7); top: 4%;">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <!-- Modal Trigger to open second modal -->
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+        <div>
+            <input type="text" ui-field="textfield" style="width:100px;" name="name" id="getName">
+            <button ui-field="button" class="btn-flat btn-large waves-effect waves-red">
+                Click Here..
+            </button>
+        </div>
+    </uibinder>
+
+    <uibinder type="uidata" id="elements">
+        <TextField ui-field="textfield" class="PP-TextBox-Div">
+            <input ui-field="input" class="PP-TextBox-Input" />
+        </TextField>
+        <TextBox ui-field="textbox">
+            <label ui-field="label1"></label>
+            <div ui-base="TextField"></div>
+            <label ui-field="label2"></label>
+        </TextBox>
+        <ComboBox>
+            <div ui-base="TextField">
+                <span></span>
+            </div>
+            <div></div>
+        </ComboBox>
+    </uibinder>
+</ui-section>
+
+<script src="../js/main.js"></script>
+<script type="text/javascript">
+    (function (jScript) {
+        'use strict';
+        var uiObj = doc.body.querySelectorAll("uibinder");
+        uiObj.forEach(element => {
+            var panel_id = element.getAttribute("id");
+            jScript.layoutPanel[panel_id].uiObj = element;
+            console.time("load");
+            jScript.UiBinder(panel_id)
+            console.timeEnd("load");
+        });
+    })(JS)
+</script>
+
+</html>
