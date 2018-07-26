@@ -649,7 +649,7 @@
 }
 
 .blue-text {
-  color: #2196F3 !important
+  color: #2196F3 !important;
 }
 
 .blue.lighten-5 {
@@ -2150,7 +2150,7 @@ html {
 }
 
 body {
-  margin: 0
+  margin: 0;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
@@ -2343,7 +2343,7 @@ ul:not(.browser-default) {
 }
 
 ul:not(.browser-default)>li {
-  list-style-type: none
+  list-style-type: none;
 }
 
 a {
@@ -3143,19 +3143,19 @@ nav ul a span.badge {
 
 @media only screen and (min-width: 601px) {
   .container {
-    width: 85%
+    width: 85%;
   }
 }
 
 @media only screen and (min-width: 993px) {
   .container {
-    width: 70%
+    width: 75%;
   }
 }
 
 .container .row {
   margin-left: -.75rem;
-  margin-right: -.75rem
+  margin-right: -.75rem;
 }
 
 .section {
@@ -3178,7 +3178,7 @@ nav ul a span.badge {
 .row {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 .row:after {
@@ -3280,7 +3280,7 @@ nav ul a span.badge {
   width: 100%;
   margin-left: auto;
   left: auto;
-  right: auto
+  right: auto;
 }
 
 .row .col.offset-s1 {
@@ -4091,7 +4091,7 @@ nav ul li {
   -webkit-transition: background-color .3s;
   transition: background-color .3s;
   float: left;
-  padding: 0
+  padding: 0;
 }
 
 nav ul li.active {
@@ -4180,7 +4180,7 @@ nav .input-field label.active i {
   }
   nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: 64px;
-    line-height: 64px
+    line-height: 64px;
   }
   .navbar-fixed {
     height: 64px
@@ -6770,7 +6770,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .side-nav li {
   float: none;
-  line-height: 48px
+  line-height: 48px;
 }
 
 .side-nav li.active {

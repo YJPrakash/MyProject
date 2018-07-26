@@ -1,0 +1,14 @@
+.right {
+    line-height: unset;
+}
+
+.slide-toggle i {
+    color: black;
+}
+
+.slide_btn_cntrl {
+    /* position: fixed; */
+    /* bottom: 64px; */
+    /* z-index: 9999; */
+    height: 8%;
+}
