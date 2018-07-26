@@ -1,76 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard sample</title>
-    <link rel="stylesheet" href="../css/materialize/materialIcons.css">
-    <link rel="stylesheet" href="../css/materialize/materialize.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Dashboard Template</title>
+	<link rel="stylesheet" href="../css/materialize/material.indigo-pink.min.css">
+	<link rel="stylesheet" href="../css/materialize/materialize.min.css">
+	<!-- <link rel="stylesheet" href="../css/materialize/material.grey-blue.min.css"> -->
+	<link rel="stylesheet" href="../css/materialize/materialIcons.css">
+	<link rel="stylesheet" href="./css/styles.css">
 </head>
+
 <body>
-    <header>
-        <nav>
-          <div class="nav-wrapper">
-            <div class="container">
-              <a href="#" class="brand-logo center">LOGO</a>
-              <!-- mobile menu trigger -->
-              <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-              <!-- desktop menu content -->
-              <ul class="right hide-on-med-and-down">
-                <li><a href="#">item1</a></li>
-                <li><a href="#">item2</a></li>
-                <!-- desktop menu dropdown trigger -->
-                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a href="#">item3</a></li>
-                <!-- desktop menu dropdown content -->
-                <ul id='dropdown1' class='dropdown-content'>
-                  <li><a href="#!">sub-dropdown1</a></li>
-                  <li><a href="#!">sub-dropdown2</a></li>
-                  <li><a href="#!">sub-dropdown3</a></li>
-                  <li><a href="#!">sub-dropdown4</a></li>
-                </ul>
-              </ul>
-              <!-- mobile and tablet menu content -->
-              <ul id="mobile-menu" class="side-nav fixed">
-                <li>
-                  <div class="userView">
-                    <div class="background">
-                      <img src="http://lorempixel.com/output/abstract-q-c-640-480-10.jpg" alt="">
-                    </div>
-                    <a href="#!user"><img class="circle" src="http://lorempixel.com/output/people-q-c-640-480-9.jpg" alt=""></a>
-                    <a href="#!name"><span class="white-text name">John Doe</span></a>
-                    <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-                  </div>
-                </li>
-                <li><a href="#!">item1</a></li>
-                <li><a href="#!">item2</a></li>
-                <li class="no-padding">
-                  <ul class="collapsible collapsible-accordion">
-                    <li>
-                      <!-- mobile and tablet menu dropdown trigger -->
-                      <a class="collapsible-header">Dropdown<i class="material-icons right">arrow_drop_down</i></a>
-                      <div class="collapsible-body">
-                        <!-- mobile and tablet dropdown content -->
-                        <ul>
-                          <li><a href="#!">sub-dropdown1</a></li>
-                          <li><a href="#!">sub-dropdown2</a></li>
-                          <li><a href="#!">sub-dropdown3</a></li>
-                          <li><a href="#!">sub-dropdown4</a></li>
-                        </ul>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li><a href="#!">item3</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-    </header>
-    <main></main>
-    <footer></footer>
+	<header>
+		<nav class="nav-extended">
+			<div class="nav-wrapper">
+				<div class="container">
+					<a href="#" class="brand-logo">LOGO</a>
+					<a href="#" data-activates="mobile-menu" class="button-collapse">
+						<i class="material-icons">menu</i>
+					</a>
+					<ul class="right hide-on-med-and-down">
+						<li>
+							<a href="#">item1</a>
+						</li>
+						<li>
+							<a href="#">item2</a>
+						</li>
+						<li>
+							<a href="#">item3</a>
+						</li>
+						<li>
+							<a href="#">item4</a>
+						</li>
+					</ul>
+					<ul class="side-nav" id="mobile-menu">
+						<li>
+							<a href="#">item1</a>
+						</li>
+						<li>
+							<a href="#">item2</a>
+						</li>
+						<li>
+							<a href="#">item3</a>
+						</li>
+						<li>
+							<a href="#">item4</a>
+						</li>
+					</ul>
+					<!-- tabs items -->
+					<ul class="tabs tabs-transparent">
+						<li class="tab">
+							<a class="active" href="#dash">Dashboard</a>
+						</li>
+						<li class="tab">
+							<a href="#summ">Summary</a>
+						</li>
+					</ul>
+					<!-- Slide controls -->
+					<div class="side-nav fixed">
+						<ul id="mobile-menu" class="side-nav fixed">
+							<li>
+								<div class="userView">
+									<div class="background" style="background-color:black;opacity:.1">
+										<!-- <img src="http://lorempixel.com/output/abstract-q-c-640-480-10.jpg" alt=""> -->
+									</div>
+									<a href="#!user">
+										<img class="circle" src="./imgs/people-q-c-640-480-9.jpg" alt="">
+									</a>
+									<a href="#!name">
+										<span class="blue-text name">John Doe</span>
+									</a>
+									<a href="#!email">
+										<span class="blue-text email">jdandturk@gmail.com</span>
+									</a>
+									<a href="#!asstvalue">
+										<span class="blue-text" style="font-size:16px;">Net Asset Value : ₹ 12,65,961</span>
+									</a>
+								</div>
+							</li>
+							<li>
+								<div class="row">
+									<div class="col s12">
+										<ul class="tabs">
+											<li class="tab col s6">
+												<a href="#test1">Consolidated</a>
+											</li>
+											<li class="tab col s6">
+												<a href="#test2">Individual</a>
+											</li>
+										</ul>
+									</div>
+									<div id="test1" class="col s12"></div>
+									<div id="test2" class="col s12"></div>
+								</div>
+							</li>
+							<li>
+								<a href="#!">Port A</a>
+							</li>
+							<li>
+								<a href="#!">Port B</a>
+							</li>
+							<li>
+								<a href="#!">Port C</a>
+							</li>
+						</ul>
+						<div class="slide_btn_cntrl">
+							<a class="btn-floating btn-large waves-effect waves-light white slide-toggle">
+								<i class="material-icons">first_page</i>
+							</a>
+						</div>
+						<!-- <div class="round"><i style="color:black;z-index:999;position:fixed;left:250px;bottom:20px;" class="slide-toggle material-icons rounded"></i></div> -->
+					</div>
+					<!-- mobile and tablet menu content -->
+					
+					
+				</div>
+			</div>
+
+		</nav>
+
+
+	</header>
+	<main>
+		<div class="container">
+			<!-- tabs content -->
+			<div id="dash" class="col s12">
+				<div class="row">
+					<div class="col l3 m6 s12">
+						<div class="card horizontal">
+							<div class="card-image">
+								<img src="">
+							</div>
+							<div class="card-stacked">
+								<div class="card-content">
+									<p>I am a very simple card. I am good at containing small bits of information.</p>
+								</div>
+								<div class="card-action">
+									<a href="#">This is a link</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col l3 m6 s12">
+						<div class="card small">
+							<div class="card-image waves-effect waves-block waves-light">
+								<img src="$" alt="" class="activator" />
+							</div>
+							<div class="card-content">
+								<span class="card-title activator">Card Title
+									<i class="material-icons right">more_vert</i>
+								</span>
+								<p>
+									<a href="#">This is a link</a>
+								</p>
+							</div>
+							<div class="card-action">
+								<a href="#">This is a link</a>
+								<a href="#">This is a link</a>
+							</div>
+							<div class="card-reveal">
+								<span class="card-title activator">Card Title
+									<i class="material-icons right">close</i>
+								</span>
+								<p>Here is some more information about this product that is only revealed once clicked on.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="summ" class="col s12">
+				<div class="main">
+					<div class="up row">
+						<div class="wel col l3 m6 s12">
+							<label class="h1">Investor: William Harnisch</label>
+							<br>
+							<br>
+							<label class="h2">Valuation Date: September 30, 2017</label>
+							<br>
+							<br>
+							<label class="h3">Total Value: ₹ 12,65,961</label>
+							<br>
+							<br>
+						</div>
+						<div class="chart col l3 m6 s12">
+							<div id="chart"></div>
+							<div id="graph" style="background-color: rgb(255, 255, 255); width: 400px;">
+								<div id="graph_chart" data-highcharts-chart="0" style="width: 400px; height: 300px;">
+									<div id="highcharts-ec0aa7k-0" dir="ltr" class="highcharts-container " style="position: relative; overflow: hidden; width: 400px; height: 300px; text-align: left; line-height: normal; z-index: 0; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+										<svg version="1.1" class="highcharts-root" style="font-family:&quot;Lucida Grande&quot;, &quot;Lucida Sans Unicode&quot;, Arial, Helvetica, sans-serif;font-size:12px;"
+										    xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+											<desc>Created with Highstock 6.1.0</desc>
+											<defs>
+												<clipPath id="highcharts-ec0aa7k-1">
+													<rect x="0" y="0" width="380" height="275" fill="none"></rect>
+												</clipPath>
+											</defs>
+											<rect fill="#ffffff" class="highcharts-background" x="0" y="0" width="400" height="300" rx="0" ry="0"></rect>
+											<rect fill="none" class="highcharts-plot-background" x="10" y="10" width="380" height="275"></rect>
+											<rect fill="none" class="highcharts-plot-border" x="10" y="10" width="380" height="275"></rect>
+											<g class="highcharts-series-group">
+												<g class="highcharts-series highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,10) scale(1 1)">
+													<path fill="#9400D3" d="M 189.48228043127853 50.500001804500684 A 87 87 0 0 1 256.9844073787432 192.4076930924969 L 189.5 137.5 A 0 0 0 0 0 189.5 137.5 Z"
+													    transform="translate(0,0)" stroke-linejoin="round" class="highcharts-point highcharts-color-0"></path>
+													<path fill="#FF0000" d="M 256.9294659526011 192.47515003478398 A 87 87 0 1 1 189.37915874538777 50.50008392307964 L 189.5 137.5 A 0 0 0 1 0 189.5 137.5 Z"
+													    transform="translate(0,0)" stroke-linejoin="round" class="highcharts-point highcharts-color-1"></path>
+												</g>
+												<g class="highcharts-markers highcharts-series-0 highcharts-pie-series " transform="translate(10,10) scale(1 1)"></g>
+											</g>
+											<text x="200" text-anchor="middle" class="highcharts-title" style="color:#333333;font-size:18px;fill:#333333;" y="24"></text>
+											<text x="200" text-anchor="middle" class="highcharts-subtitle" style="color:#666666;fill:#666666;" y="24"></text>
+											<g class="highcharts-data-labels highcharts-series-0 highcharts-pie-series highcharts-tracker" transform="translate(10,10) scale(1 1)"
+											    opacity="1">
+												<path fill="none" class="highcharts-data-label-connector highcharts-color-0" stroke="#9400D3" stroke-width="1" d="M 300.1787716388221 87.29046679255342 C 295.1787716388221 87.29046679255342 278.9204990790033 95.01501036292981 273.50107489239707 97.58985821972195 L 268.0816507057908 100.16470607651408"></path>
+												<path fill="none" class="highcharts-data-label-connector highcharts-color-1" stroke="#FF0000" stroke-width="1" d="M 78.8212283611779 187.70953320744667 C 83.8212283611779 187.70953320744667 100.07950092099668 179.98498963707024 105.49892510760294 177.4101417802781 L 110.91834929420921 174.83529392348598"></path>
+												<g class="highcharts-label highcharts-data-label highcharts-data-label-color-0 " transform="translate(305,77)">
+													<text x="5" style="font-size:10px;font-weight:normal;font-family:Arimo;font-style:normal;color:#000;fill:#000;" y="15">
+														<tspan x="5" y="15" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+														    style="">₹ 4,54,247.00</tspan>
+														<tspan x="5" dy="13" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+														    style="">35.88%</tspan>
+														<tspan x="5" y="15">₹ 4,54,247.00</tspan>
+														<tspan x="5" dy="13">35.88%</tspan>
+													</text>
+												</g>
+												<g class="highcharts-label highcharts-data-label highcharts-data-label-color-1 " transform="translate(0,178)">
+													<text x="5" style="font-size:10px;font-weight:normal;font-family:Arimo;font-style:normal;color:#000;fill:#000;" y="15">
+														<tspan x="5" y="15" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+														    style="">₹ 8,11,713.00</tspan>
+														<tspan x="5" dy="13" class="highcharts-text-outline" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2px" stroke-linejoin="round"
+														    style="">64.12%</tspan>
+														<tspan x="5" y="15">₹ 8,11,713.00</tspan>
+														<tspan x="5" dy="13">64.12%</tspan>
+													</text>
+												</g>
+											</g>
+										</svg>
+									</div>
+								</div>
+								<div id="graph_legend" style="font-size: 10px; font-family: Arimo; font-weight: normal; font-style: normal; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);">
+									<div style="display: table; border: 1px solid rgb(204, 204, 204); border-collapse: separate; border-spacing: 5px; margin: 0px auto 15px; background-color: rgb(255, 255, 255);">
+										<div style="display: table-row;">
+											<div index="0" isrevealed="true" title="PIMCO" style="display: table-cell; padding: 2.5px; cursor: default;">
+												<span style="display: inline-block; width: 15px; margin-right: 10px; font-size: 10px; font-family: Arimo; font-weight: normal; font-style: normal; color: rgb(0, 0, 0); background-color: rgb(148, 0, 211); height: 10px;"></span>
+												<span style="display: inline-block; line-height: 10px; font-size: 10px; font-family: Arimo; font-weight: normal; font-style: normal;">PIMCO</span>
+											</div>
+											<div index="1" isrevealed="true" title="Forstmann" style="display: table-cell; padding: 2.5px; cursor: default;">
+												<span style="display: inline-block; width: 15px; margin-right: 10px; font-size: 10px; font-family: Arimo; font-weight: normal; font-style: normal; color: rgb(0, 0, 0); background-color: rgb(255, 0, 0); height: 10px;"></span>
+												<span style="display: inline-block; line-height: 10px; font-size: 10px; font-family: Arimo; font-weight: normal; font-style: normal;">Forstmann</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div style="width:900px;float:left;">
+						<div>
+							<input class="btnstyle" type="button" title="" value="Collapse All" name="collapse" id="collapse_all" style="margin-left: 9px; text-align: center;">
+						</div>
+						<div class="brok" id="brk_1">
+							<div class="logo" id="logo1">
+								<img src="/images/cmpny/forstmann.jpg"> </div>
+							<div class="tab" id="tblcnt1">
+								<table class="imgs fancytree-container fancytree-ext-table" border="1px solid" id="data1" tabindex="0">
+									<thead>
+										<tr id="ch">
+											<th class="th1">No.</th>
+											<th class="th2" style="width: 480px;">Name</th>
+											<th class="th3" style="display: table-cell;">Portfolio
+												<br>₹</th>
+											<th class="th4" style="display: table-cell;">Manager
+												<br>₹</th>
+											<th class="th5" style="display: table-cell;">PM Company
+												<br>₹</th>
+										</tr>
+									</thead>
+									<tbody></tbody>>
+								</table>
+							</div>
+							<br>
+						</div>
+						<div class="brok" id="brk_2">
+							<div class="logo" id="logo2">
+								<img src="/images/cmpny/pimco.jpg"> </div>
+							<div class="tab" id="tblcnt2">
+								<table class="imgs fancytree-container fancytree-ext-table" border="1px solid" id="data2" tabindex="0">
+									<thead>
+										<tr id="ch">
+											<th class="th1">No.</th>
+											<th class="th2" style="width: 480px;">Name</th>
+											<th class="th3" style="display: table-cell;">Portfolio
+												<br>₹</th>
+											<th class="th4" style="display: table-cell;">Manager
+												<br>₹</th>
+											<th class="th5" style="display: table-cell;">PM Company
+												<br>₹</th>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
+							<br>
+						</div>
+					</div>
+					<div class="h4" style="margin-left:70px;float:left;">
+						<table class="imgs" style="text-align:right">
+							<tbody>
+								<tr>
+									<td style="width:75%">William Harnisch's Value:</td>
+									<td style="width:15%"> ₹ 12,65,961</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+
+	</footer>
 </body>
 <script src="../js/jquery/jquery-3.1.1.min.js"></script>
+<script src="../js/jquery/jquery-ui.js"></script>
+<script src="../js/jquery-fancytree/jquery.fancytree.min.js"></script>
+<script src="../js/jquery-fancytree/jquery.fancytree-all.js"></script>
+<script src="../js/jquery-fancytree/jquery.fancytree-all-deps.min.js"></script>
 <script src="../js/materialize/materialize.min.js"></script>
+<script src="./js/events.js"></script>
+
 </html>

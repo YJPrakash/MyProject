@@ -1,0 +1,27 @@
+{
+    "title": "PIMCO",
+    "folder": true,
+    "key": "~~~4,54,248",
+    "children": [{
+        "title": "Virgine Maisonneuve",
+        "folder": true,
+        "key": "~~4,54,248~",
+        "children": [{
+            "title": "William Harnisch Individual Account 2",
+            "folder": false,
+            "key": "1~4,54,248~~"
+        }, {
+            "title": "Virgine Maisonneuve Total:",
+            "folder": false,
+            "key": "~~4,54,248~",
+            "key1": 454247.91
+        }],
+        "key1": 454247.91
+    }, {
+        "title": "PIMCO Total:",
+        "folder": false,
+        "key": "~~~4,54,248",
+        "key1": 454247.91
+    }],
+    "key1": 454247.91
+}
