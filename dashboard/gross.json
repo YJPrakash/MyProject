@@ -1,0 +1,35 @@
+{
+    "title": "Gross",
+    "folder": true,
+    "key": "~~~1,11,61,224",
+    "children": [{
+        "title": "Steve Gross",
+        "folder": true,
+        "key": "~~1,11,61,224~",
+        "children": [{
+            "title": "Bill Gates Individual Account",
+            "folder": false,
+            "key": "1~93,818~~"
+        }, {
+            "title": "Bill Gates Individual Account 1",
+            "folder": false,
+            "key": "2~1,09,73,589~~"
+        }, {
+            "title": "Bill Gates Individual Account 2",
+            "folder": false,
+            "key": "3~93,818~~"
+        }, {
+            "title": "Steve Gross Total:",
+            "folder": false,
+            "key": "~~1,11,61,224~",
+            "key1": 11161224.41
+        }],
+        "key1": 11161224.41
+    }, {
+        "title": "Gross Total:",
+        "folder": false,
+        "key": "~~~1,11,61,224",
+        "key1": 11161224.41
+    }],
+    "key1": 11161224.41
+}

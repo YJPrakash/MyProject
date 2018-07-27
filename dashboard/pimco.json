@@ -1,27 +1,62 @@
 {
     "title": "PIMCO",
     "folder": true,
-    "key": "~~~4,54,248",
+    "key": "~~~2,27,99,642",
     "children": [{
+        "title": "Mihir Worah",
+        "folder": true,
+        "key": "~~1,14,65,324~",
+        "children": [{
+            "title": "Bill Gates Individual Account 1",
+            "folder": false,
+            "key": "1~3,04,100~~"
+        }, {
+            "title": "Bill Gates Individual Account 2",
+            "folder": false,
+            "key": "2~93,818~~"
+        }, {
+            "title": "Bill Gates Individual Account 3",
+            "folder": false,
+            "key": "3~1,09,73,589~~"
+        }, {
+            "title": "Bill Gates Individual Account 4",
+            "folder": false,
+            "key": "4~93,818~~"
+        }, {
+            "title": "Mihir Worah Total:",
+            "folder": false,
+            "key": "~~1,14,65,324~",
+            "key1": 11465323.91
+        }],
+        "key1": 11465323.91
+    }, {
         "title": "Virgine Maisonneuve",
         "folder": true,
-        "key": "~~4,54,248~",
+        "key": "~~1,13,34,318~",
         "children": [{
-            "title": "William Harnisch Individual Account 2",
+            "title": "Bill Gates Individual Account 1",
             "folder": false,
-            "key": "1~4,54,248~~"
+            "key": "5~1,09,73,589~~"
+        }, {
+            "title": "Bill Gates Individual Account 2",
+            "folder": false,
+            "key": "6~2,25,799~~"
+        }, {
+            "title": "Bill Gates Individual Account 3",
+            "folder": false,
+            "key": "7~1,34,930~~"
         }, {
             "title": "Virgine Maisonneuve Total:",
             "folder": false,
-            "key": "~~4,54,248~",
-            "key1": 454247.91
+            "key": "~~1,13,34,318~",
+            "key1": 11334317.92
         }],
-        "key1": 454247.91
+        "key1": 11334317.92
     }, {
         "title": "PIMCO Total:",
         "folder": false,
-        "key": "~~~4,54,248",
-        "key1": 454247.91
+        "key": "~~~2,27,99,642",
+        "key1": 22799641.83
     }],
-    "key1": 454247.91
+    "key1": 22799641.83
 }

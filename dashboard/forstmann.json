@@ -1,46 +1,31 @@
 {
     "title": "Forstmann",
     "folder": true,
-    "key": "~~~8,11,713",
+    "key": "~~~5,48,065",
     "children": [{
         "title": "William Harnisch",
         "folder": true,
-        "key": "~~5,85,914~",
+        "key": "~~5,48,065~",
         "children": [{
-            "title": "William Harnisch Individual Account",
+            "title": "Bill Gates Individual Account1",
             "folder": false,
-            "key": "1~3,04,100~~"
+            "key": "1~4,54,248~~"
         }, {
-            "title": "JWilliam Harnish Portfolio2 Managed by Himself",
+            "title": "Bill Gates Individual Account2",
             "folder": false,
-            "key": "2~2,81,815~~"
+            "key": "2~93,818~~"
         }, {
             "title": "William Harnisch Total:",
             "folder": false,
-            "key": "~~5,85,914~",
-            "key1": 585914.21
+            "key": "~~5,48,065~",
+            "key1": 548065.48
         }],
-        "key1": 585914.21
-    }, {
-        "title": "Joel Forstmann",
-        "folder": true,
-        "key": "~~2,25,799~",
-        "children": [{
-            "title": "William Harnisch Individual Account",
-            "folder": false,
-            "key": "3~2,25,799~~"
-        }, {
-            "title": "Joel Forstmann Total:",
-            "folder": false,
-            "key": "~~2,25,799~",
-            "key1": 225799.13
-        }],
-        "key1": 225799.13
+        "key1": 548065.48
     }, {
         "title": "Forstmann Total:",
         "folder": false,
-        "key": "~~~8,11,713",
-        "key1": 811713.34
+        "key": "~~~5,48,065",
+        "key1": 548065.48
     }],
-    "key1": 811713.34
+    "key1": 548065.48
 }

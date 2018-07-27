@@ -369,18 +369,18 @@ function tree_creation(strt_cnt, tbl_cnt) {
     //$.ui.fancytree.info("Event('" + event.type + "', node=" + data.node + ")" + msg);
     //}
     var cmpny_data = {
-        url: ["./forstmann.json", "./pimco.json"]
+        url: ["./forstmann.json", "./pimco.json", "./gross.json"]
     };
     for (var x = strt_cnt; x <= tbl_cnt; x++) {
         var i = 0;
-        var json_data = "";
-        $.get(cmpny_data.url[x-1],function(data){
-            json_data = data;
-            tot_calc(json_data);
-            print_data(json_data, 2);
-            // console.log(json_data);
-            // console.log(JSON.parse(json_data));
-        });
+        // var json_data = "";
+        // $.get(cmpny_data.url[x-1],function(data){
+        //     json_data = data;
+        //     tot_calc(json_data);
+        //     print_data(json_data, 2);
+        //     // console.log(json_data);
+        //     // console.log(JSON.parse(json_data));
+        // });
         $('#brk_' + x + ' #tblcnt' + x + ' #data' + x).fancytree({
             extensions: ["glyph", "table"],
             checkbox: true,
@@ -604,7 +604,7 @@ var cli_cnt = 0,
     grand_total = 0,
     cmpny_grand_total = 0,
     layer_cnt = 0;
-tree_creation(1,2);
+tree_creation(1,3);
 
 // $.contextMenu({
 //     selector: "#tree span.fancytree-title",
