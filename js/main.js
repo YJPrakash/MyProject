@@ -8,7 +8,7 @@
 	global.doc = document;
 	global.rootPanel = doc.body;
 
-	var docFrame = doc.createElement('iframe');
+	var docFrame = global.docFrame = doc.createElement('iframe');
 	doc.body.appendChild(docFrame);
 	docFrame.style["visibility"] = "hidden";
 	docFrame.style["height"] = "0";
@@ -32,6 +32,7 @@
 	// docFrame.src = "/myWork/uibinder/contentPanel.html";
 	// docFrame.src = "/myWork/uibinder/helloworld.html";
 	docFrame.src = "/myWork/uibinder/Elements.html";
+	// docFrame.src = "/myWork/uibinder/mainPanel.html";
 
 	function setProperty(_proto, tagName) {
 		var obj = (_prpoperties[tagName] === undefined) ? _prpoperties["TextBox"] : _prpoperties[tagName];
@@ -83,6 +84,10 @@
 			"helloworld": {
 				url: "./uibinder/helloworld.html",
 				type: "uibinder"
+			},
+			"mainPanel": {
+				url: "./uibinder/mainPanel.html",
+				type: "uibinder"
 			}
 		},
 		createUiString: function (panel, domObj) {
@@ -114,8 +119,8 @@
 
 			}
 			// uiObj.style.display = "block";
-			if (uiObj.querySelectorAll("script").length > 0) {
-				var script = uiObj.querySelectorAll("script");
+			var script = uiObj.querySelectorAll("script");
+			if (script.length > 0) {
 				var scriptFragment = doc.createDocumentFragment();
 				for (var j = 0; j < script.length; j++) {
 					var script1 = doc.createElement('script');

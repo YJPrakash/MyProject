@@ -23,7 +23,7 @@
 </head>
 
 <body>
-
+    
 </body>
 <ui-section>
     <uibinder type="uibinder" id="contentPanel">
@@ -46,10 +46,14 @@
                 </style>
                 <div ui-field="menuList">
                     <ul>
-                        <li ui-field="addEmp"><i class="picker__list"></i>Add Employee Details..</li>
-                        <li ui-field="addDept"><i class="picker__list"></i>Add Dept. Details..</li>
-                        <li ui-field="addDet"><i class="picker__list"></i>Project Details..</li>
-                        <li ui-field="search"><i class="picker__list"></i>Search..</li>
+                        <li ui-field="addEmp">
+                            <i class="picker__list"></i>Add Employee Details..</li>
+                        <li ui-field="addDept">
+                            <i class="picker__list"></i>Add Dept. Details..</li>
+                        <li ui-field="addDet">
+                            <i class="picker__list"></i>Project Details..</li>
+                        <li ui-field="search">
+                            <i class="picker__list"></i>Search..</li>
                     </ul>
                 </div>
             </div>
@@ -71,29 +75,39 @@
     </uibinder>
     <uibinder type="uibinder" id="helloworld">
         <script type="text/plain">
-            (function (helloworld) { 
-                // console.log(helloworld.textfield); 
-                helloworld.button.addEventListener("click", function (e) { 
-                    if(helloworld.textfield.value) 
-                    alert(helloworld.textfield.value); 
-                }) 
+            (function (helloworld) {
+                'use strict';
+                helloworld.button.href = "#modal2";
+                rootPanel.appendChild(helloworld.button);
+                helloworld.modal.id = "modal2";
+                // console.log(helloworld.modal.id)
+                rootPanel.appendChild(helloworld.modal);
+                $(helloworld.modal).modal();
+                // $('body').find('.modal').eq(1).modal();
+                helloworld.button.addEventListener("click", function (e) {
+                    console.log(helloworld.textfield.value)
+                    if (helloworld.textfield.value == "") {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                    }
+                    // helloworld.mdlmsg.textContent = helloworld.textfield.value;
+                });
             })(JS.helloworld);
         </script>
-        <div id="modal1" class="modal" style="z-index: 1003; display: none; opacity: 0; transform: scaleX(0.7); top: 4%;">
+        <input type="text" ui-field="textfield" style="width:100px;" name="name" id="getName">
+        <!-- Modal Trigger -->
+        <a ui-field="button" class="waves-effect waves-light btn modal-trigger" href="#modal1">Click Here..</a>
+
+        <!-- Modal Structure -->
+        <div ui-field="modal" id="modal1" class="modal bottom-sheet">
             <div class="modal-content">
-                <h4>Modal Header</h4>
-                <!-- Modal Trigger to open second modal -->
-                <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a>
+                <h4>Hi, Hello world</h4>
+                <p ui-field="mdlmsg"></p>
             </div>
             <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Disagree</a>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
-        </div>
-        <div>
-            <input type="text" ui-field="textfield" style="width:100px;" name="name" id="getName">
-            <button ui-field="button" class="btn-flat btn-large waves-effect waves-red">
-                Click Here..
-            </button>
         </div>
     </uibinder>
 
@@ -114,6 +128,8 @@
         </ComboBox>
     </uibinder>
 </ui-section>
+<script src="../js/jquery/jquery-3.1.1.min.js"></script>
+<script src="../js/materialize/materialize.min.js"></script>
 
 <script src="../js/main.js"></script>
 <script type="text/javascript">
@@ -127,6 +143,7 @@
             jScript.UiBinder(panel_id)
             console.timeEnd("load");
         });
+        // $('.modal').modal();
     })(JS)
 </script>
 
