@@ -8,7 +8,6 @@
     <title>Layout Work</title>
     <link rel="stylesheet" href="css/materialize/materialize.min.css">
     <link rel="stylesheet" href="css/materialize/materialIcons.css">
-
     <style>
         head,
         body {
@@ -30,7 +29,14 @@
 <script src="js/main.js"></script>
 <script>
     (function () {
-        docFrame.src = "./uibinder/mainPanel.html";
+        if (isImport) {
+            var mainFrame = docFrame.cloneNode(true);
+            mainFrame.href = "./uibinder/mainPanel.html";
+            mainFrame.onload = JS.createUIObjContainer;
+            doc.head.append(mainFrame);
+        } else {
+            docFrame.src = "./uibinder/mainPanel.html";
+        }
     })()
 </script>
 

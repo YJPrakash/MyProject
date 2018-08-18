@@ -7,19 +7,49 @@
 	var global = window;
 	global.doc = document;
 	global.rootPanel = doc.body;
+	var isImport = global.isImport = ('import' in doc.createElement('link'))
+	var docFrame = global.docFrame = (isImport) ? doc.createElement('link') : doc.createElement('iframe');
 
-	var docFrame = global.docFrame = doc.createElement('iframe');
-	doc.body.appendChild(docFrame);
-	docFrame.style["visibility"] = "hidden";
-	docFrame.style["height"] = "0";
-	docFrame.style["width"] = "0";
-	docFrame.style["display"] = "none";
-	docFrame.onload = function () {
-		// console.log(docFrame.contentWindow.document)
-		var domObj = docFrame.contentWindow.document;
+	docFrame.onload = createUIObjContainer;
+	// docFrame.uibinder = docFrame
+
+	if (isImport) {
+		docFrame.rel = "import"
+		// docFrame.href = "/myWork/uibinder/uibinder.html";
+		// docFrame.href = "/myWork/uibinder/contentPanel.html";
+		// docFrame.href = "/myWork/uibinder/helloworld.html";
+		docFrame.href = "/myWork/uibinder/Elements.html";
+		// docFrame.href = "/myWork/uibinder/mainPanel.html";
+		doc.head.appendChild(docFrame);
+		// createUIObjContainer();
+	} else {
+		docFrame.style["visibility"] = "hidden";
+		docFrame.style["height"] = "0";
+		docFrame.style["width"] = "0";
+		docFrame.style["display"] = "none";
+		// docFrame.src = "/myWork/uibinder/uibinder.html";
+		// docFrame.src = "/myWork/uibinder/contentPanel.html";
+		// docFrame.src = "/myWork/uibinder/helloworld.html";
+		docFrame.src = "/myWork/uibinder/Elements.html";
+		// docFrame.src = "/myWork/uibinder/mainPanel.html";
+		doc.body.appendChild(docFrame);
+	}
+
+	function createUIObjContainer() {
+		var domObj = {};
+
+		if (isImport) {
+			domObj = this.import
+		} else {
+			// console.log(docFrame.contentWindow.document)
+			domObj = this.contentWindow.document;
+		}
 		var uiObj = domObj.querySelectorAll("uibinder");
 		uiObj.forEach(element => {
 			var panel_id = element.getAttribute("id");
+			if (JS.layoutPanel[panel_id].uiObj !== undefined) {
+				return;
+			}
 			JS.layoutPanel[panel_id].uiObj = element;
 			console.time("load");
 			JS.UiBinder(panel_id);
@@ -27,12 +57,6 @@
 		});
 
 	}
-
-	// docFrame.src = "/myWork/uibinder/uibinder.html";
-	// docFrame.src = "/myWork/uibinder/contentPanel.html";
-	// docFrame.src = "/myWork/uibinder/helloworld.html";
-	docFrame.src = "/myWork/uibinder/Elements.html";
-	// docFrame.src = "/myWork/uibinder/mainPanel.html";
 
 	function setProperty(_proto, tagName) {
 		var obj = (_prpoperties[tagName] === undefined) ? _prpoperties["TextBox"] : _prpoperties[tagName];
@@ -108,7 +132,7 @@
 			var uiObj = JS.layoutPanel[panel].uiObj = JS.layoutPanel[panel].uiObj.cloneNode(true);
 			var evalString = "JS.layoutPanel['" + panel + "'].uiObj = JS.createUi"
 			if (type == "uibinder") {
-				evalString += "Field(JS.layoutPanel['"+panel+"'].uiObj,false,null);";
+				evalString += "Field(JS.layoutPanel['" + panel + "'].uiObj,false,null);";
 				// uiObj = uiObj.cloneNode(true);
 				doc.body.appendChild(uiObj);
 			} else if (type == "uidata") {
@@ -140,7 +164,8 @@
 				doc.head.appendChild(scriptFragment);
 			}
 			return JS.layoutPanel[panel].uiObj;
-		}
+		},
+		createUIObjContainer: createUIObjContainer
 	}
 
 	global.onload = function () {
