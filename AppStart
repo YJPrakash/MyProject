@@ -1,0 +1,2 @@
+#!/bin/sh
+nodejs $HOME/PPJeffrin/NodeJS/index.js

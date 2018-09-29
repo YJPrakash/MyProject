@@ -1,0 +1,25 @@
+{
+  "name": "uibinder",
+  "version": "1.0.0",
+  "description": "UiBinder Javscript Tool",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YJPrakash/myWork.git"
+  },
+  "author": "Jeyaprakash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YJPrakash/myWork/issues"
+  },
+  "homepage": "https://github.com/YJPrakash/myWork#readme",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "exec": "^0.2.1",
+    "express": "^4.16.3"
+  }
+}
