@@ -2,13 +2,14 @@ var express = require('express');
 // var exec = require('exec');
 // var path = require("path");
 // const execFile = require('child_process').execFile;
+var host = process.env.HOST || 'localhost';
+var port = process.env.PORT || 8081;
+console.log(host, port);
 
 var app = express();
 
-var server = app.listen(8081, function () {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log("App listening at http://%s:%s", host, port);
+var server = app.listen(port, function () {
+    console.log(`App listening at http://${host}:${port}`);
 });
 
 app.use(express.static(__dirname + "/"));

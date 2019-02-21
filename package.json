@@ -9,17 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YJPrakash/myWork.git"
+    "url": "git+https://github.com/YJPrakash/MyProject.git"
   },
   "author": "Jeyaprakash",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/YJPrakash/myWork/issues"
+    "url": "https://github.com/YJPrakash/MyProject/issues"
   },
-  "homepage": "https://github.com/YJPrakash/myWork#readme",
+  "homepage": "https://github.com/YJPrakash/MyProject#readme",
   "dependencies": {
     "child_process": "^1.0.2",
     "exec": "^0.2.1",
     "express": "^4.16.3"
-  }
+  },
+  "devDependencies": {}
 }
