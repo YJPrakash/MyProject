@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Layout Work</title>
-    <link rel="stylesheet" href="../css/materialize/materialize.min.css">
-    <link rel="stylesheet" href="../css/materialize/materialIcons.css">
-    <!-- <link rel="stylesheet" href="../css/materialize/material.teal-red.min.css"> -->
     <style>
         head,
         body {
@@ -74,18 +71,18 @@
         </script>
     </uibinder>
     <uibinder type="uibinder" id="helloworld">
-        <script type="text/plain">
-            (function (helloworld) { 'use strict'; helloworld.button.href = "#modal2"; helloworld.modal.id = "modal2"; $(helloworld.modal).modal();
-            // $('body').find('.modal').eq(1).modal(); helloworld.button.addEventListener("click", function (e) { console.log(helloworld.textfield.value)
-            if (helloworld.textfield.value == "") { e.preventDefault(); e.stopImmediatePropagation(); } // helloworld.mdlmsg.textContent
-            = helloworld.textfield.value; }); })(JS.helloworld);
-        </script>
+    <script type="text/plain">
+        (function (helloworld) { 'use strict'; //helloworld.button.href = "#modal2"; //helloworld.modal.id = "modal2"; //$(helloworld.modal).modal();
+        helloworld.button.addEventListener("click", function (e) { console.log(helloworld.textfield.value)
+        if (helloworld.textfield.value == "") { e.preventDefault(); e.stopImmediatePropagation(); } 
+        }); })(JS.helloworld);
+    </script>
         <input type="text" ui-field="textfield" style="width:100px;" name="name" id="getName">
         <!-- Modal Trigger -->
         <a ui-field="button" class="waves-effect waves-light btn modal-trigger" href="#modal1">Click Here..</a>
 
         <!-- Modal Structure -->
-        <div ui-field="modal" id="modal1" class="modal bottom-sheet">
+        <!-- <div ui-field="modal" id="modal1" class="modal bottom-sheet">
             <div class="modal-content">
                 <h4>Hi, Hello world</h4>
                 <p ui-field="mdlmsg"></p>
@@ -94,7 +91,7 @@
                 <a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Disagree</a>
                 <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
-        </div>
+        </div> -->
     </uibinder>
 
     <uibinder type="uidata" id="elements">
@@ -114,8 +111,6 @@
         </ComboBox>
     </uibinder>
 </ui-section>
-<script src="../js/jquery/jquery-3.1.1.min.js"></script>
-<script src="../js/materialize/materialize.min.js"></script>
 
 <script src="../js/main.js"></script>
 <script type="text/javascript">
