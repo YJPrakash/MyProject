@@ -1,7 +1,7 @@
 <uibinder type="uibinder" id="contentPanel">
 
     <div id="header" ui-field="header" style="background-color: #f9f9f9;box-shadow: 4px 0px 8px 0px;">
-        <div ui-field="headerText" style="padding: 10px;font-size: 30px;width: 315px;height: 100px; text-align:center;margin:0 auto;color:#6b5d5d;">Employee Record Management System</div>
+        <div ui-field="headerText" style="padding: 10px;font-size: 30px;width: 315px;line-height: 100px; text-align:center;margin:0 auto;color:#6b5d5d;">UI Binder Demo</div>
     </div>
     <div id="content" ui-field="content" style="display: table;width: 100%">
         <div id="lftMenu" ui-field="lftMenu" style="display: table-cell;width: 25%">
@@ -39,10 +39,10 @@
         (function (panel) { var header = panel.header; headerText = panel.headerText, content = panel.content, lftMenu = panel.lftMenu,
         menuList = panel.menuList, addEmp = panel.addEmp, addDept = panel.addDept, addDet = panel.addDet, rgtContetPane =
         panel.rgtContetPane, search = panel.search, footer = panel.footer; addEmp.addEventListener("click", function (e)
-        { console.log("click triggerd"); console.log(addEmp.textContent); }); addDept.addEventListener("click", function
-        (e) { console.log("click triggerd"); console.log(addDept.textContent); }); addDet.addEventListener("click", function
-        (e) { console.log("click triggerd"); console.log(addDet.textContent); }); search.addEventListener("click", function
-        (e) { console.log("click triggerd"); console.log(search.textContent); }); })(JS.contentPanel);
+        { console.log("click triggerd"); console.log(addEmp.textContent.trim()); }); addDept.addEventListener("click", function
+        (e) { console.log("click triggerd"); console.log(addDept.textContent.trim()); }); addDet.addEventListener("click", function
+        (e) { console.log("click triggerd"); console.log(addDet.textContent.trim()); }); search.addEventListener("click", function
+        (e) { console.log("click triggerd"); console.log(search.textContent.trim()); }); })(JS.contentPanel);
     </script>
 </uibinder>
 <uibinder type="uibinder" id="helloworld">

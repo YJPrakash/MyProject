@@ -3,7 +3,7 @@ var express = require('express');
 // var path = require("path");
 // const execFile = require('child_process').execFile;
 var host = process.env.HOST || 'localhost';
-var port = process.env.PORT || 8081;
+var port = process.env.PORT || 8000;
 console.log(host, port);
 
 var app = express();
