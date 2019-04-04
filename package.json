@@ -19,15 +19,10 @@
   },
   "homepage": "https://github.com/YJPrakash/MyProject#readme",
   "dependencies": {
-    "bootstrap": "^4.2.1",
     "child_process": "^1.0.2",
     "exec": "^0.2.1",
     "express": "^4.16.3",
-    "jquery": "^3.3.1",
-    "jquery.fancytree": "^2.30.2",
-    "materialize": "^1.0.0",
-    "node-html-parser": "^1.1.12",
-    "semantic-ui": "^2.4.2"
+    "node-html-parser": "^1.1.12"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
