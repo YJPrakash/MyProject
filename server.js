@@ -1,14 +1,14 @@
-var express = require('express');
+const express = require('express');
 // var exec = require('exec');
 // var path = require("path");
-// const execFile = require('child_process').execFile;
-var host = process.env.HOST || 'localhost';
-var port = process.env.PORT || 8000;
+const exec = require('child_process').execFile;
+const host = process.env.HOST || 'localhost';
+const port = process.env.PORT || 8000;
 console.log(host, port);
 
-var app = express();
+const app = express();
 
-var server = app.listen(port, function () {
+const server = app.listen(port, function () {
     console.log(`App listening at http://${host}:${port}`);
 });
 
@@ -33,32 +33,32 @@ app.get('/', function (req, res) {
 //     }
 // });
 
-// app.get('/cgi-bin/*.cgi', function (req, res) {
-//     // res.sendFile(__dirname + "/");
-//     // console.log(req.originalUrl);
-//     exec("/usr/lib" + req.originalUrl,
-//         function (stderr, stdout, errorCode) {
-//             // You get here when the executable completes
-//             if (stderr) {
-//                 console.log(stderr);
-//                 // console.log(errorCode);
-//                 throw stderr;
-//             }
-//             // console.log(stdout);
-//             res.send(stdout);
-//         });
+app.get('/cgi-bin/*.cgi', function (req, res) {
+    // res.sendFile(__dirname + "/");
+    // console.log(req.originalUrl);
+    exec("/usr/lib" + req.originalUrl,
+        function (stderr, stdout, errorCode) {
+            // You get here when the executable completes
+            if (stderr) {
+                // console.log(stderr);
+                // console.log(errorCode);
+                throw stderr;
+            }
+            // console.log(stdout);
+            res.send(stdout);
+        });
 
-//     // const child = execFile("/usr/lib" + req.originalUrl, [parameters], (error, stdout, stderr) => {
-//     //     // You get here when the executable completes
-//     //     if (error) {
-//     //         console.log(error);
-//     //         throw error;
-//     //     }
-//     //     console.log(stdout);
-//     //     res.send(stdout);
-//     // });
+    // const child = execFile("/usr/lib" + req.originalUrl, [parameters], (error, stdout, stderr) => {
+    //     // You get here when the executable completes
+    //     if (error) {
+    //         console.log(error);
+    //         throw error;
+    //     }
+    //     console.log(stdout);
+    //     res.send(stdout);
+    // });
 
-// });
+});
 
 // app.get('/es6', function (req, res) {
 //     res.sendFile(__dirname + "/DATA/ES6.txt");
